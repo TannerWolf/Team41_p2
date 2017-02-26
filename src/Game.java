@@ -80,10 +80,17 @@ public class Game{
      *      The job to be inserted in the list.
      */
     public void addJob(int pos, Job item){
-        /**
-         * TODO: Add a job in the list
-         * based on position
-         */
+    	if (pos == list.size()) {
+    		list.add(item);
+        	timeToPlay += list.size();
+    	}
+    	else {
+    		if (pos < 0 || pos > list.size()) {
+    			pos = list.size();
+    		}
+    		list.add(pos, item);
+    		timeToPlay = timeToPlay - pos;
+    	}
     }
 
     /**
@@ -92,7 +99,7 @@ public class Game{
      *      The job to be inserted in the list.
      */
     public void addJob(Job item){
-        //TODO: Add a job in the joblist
+    	list.add(item);
     }
 
     /**
@@ -137,8 +144,7 @@ public class Game{
      * This function simply invokes the displayScoreBoard method in the ScoreBoard class.
      */
     public void displayCompletedJobs(){
-        //TODO: Display all the completed jobs
-
+    	scoreBoard.displayScoreBoard();
     }
 
     /**

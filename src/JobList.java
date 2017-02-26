@@ -44,11 +44,6 @@ public class JobList implements ListADT<Job> {
 		if (item == null ) {
 			throw new IllegalArgumentException();
 		}
-		// Add at end if pos is at end
-		if (pos == numItems) {
-			add(item);
-			return;
-		}
 		// get to one before position in list
 		Listnode<Job> curr = head;
 		for (int  i = 0; i < pos; i++) {
