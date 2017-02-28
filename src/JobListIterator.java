@@ -1,28 +1,41 @@
 import java.util.*;
 
-public class JobListIterator<E> implements Iterator<E> {
+public class JobListIterator<E> implements Iterator<Job> {
 
-	Listnode<E> head;
-	
-	public JobListIterator(Listnode<E> header) {
+	Listnode<Job> head;	//header reference passed to us
+	Listnode<Job> curr;	//node reference we will traverse with
+
+	public JobListIterator(Listnode<Job> header) {
 		head = header;
-	}
-	
-	@Override
-	public boolean hasNext() {
-		// TODO Auto-generated method stub
-		return false;
+		curr = head;	//start curr at head
 	}
 
 	@Override
-	public E next() {
-		// TODO Auto-generated method stub
+			//checks if there is a next node
+	public boolean hasNext() {	
+		if (curr.getNext() == null) {
+			
+			//returns false if the next reference is null
+		return false;	
+		}
 
-		//if() {
-			//throw new NoSuchElementException();
-		//}
-		return null;
+			//if there is a next node, traverse curr and return true
+		curr = curr.getNext();	
+		return true;
 	}
 
-	
+	@Override
+			//get the next node's data if it exists
+	public Job next() throws NoSuchElementException {
+		
+			//throw an error if there isn't a next node
+		if (curr.getNext() == null) {
+			throw new NoSuchElementException();
+		}
+		
+			//traverse curr and return the job data
+		curr = curr.getNext();
+		return curr.getData();
+	}
+
 }
