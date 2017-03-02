@@ -49,9 +49,9 @@ Task List Usage:
   Complete this table:
   Code letter = Student name
   ---------------------------
-         T    =  Tanner
-         I    =  Isaac
-              =
+         T    =  Tanner (Last Name)
+         I    =  Isaac (Last Name)
+         W    =  Will Mustari
               =
               =
               =
@@ -86,7 +86,7 @@ oT Task 3: Write a Test_JobList class
   - test ...
   - test ...
   
-+I Task 4: Write a JobListIterator class
++I/W Task 4: Write a JobListIterator class
   Make sure that it is implemented as described in the assignment.
   + add a constructor 
   + hasNext()
@@ -96,7 +96,7 @@ oT Task 3: Write a Test_JobList class
   JobList can return an iterator and that the JobListIterator
   works as expected.
   
-- Task 6: Write the Scoreboard class so that it implements all
++W Task 6: Write the Scoreboard class so that it implements all
   required operations of the ScoreboardADT. Review the Game class
   to see how the Scoreboard class is being used.
   
@@ -123,9 +123,9 @@ oT Task 3: Write a Test_JobList class
   - Get input value and echo to screen
   - output the job list
   
-- Task 11:
-  - finsih comments
-  - comment headers
+oW Task 11:
+  - finish comments
+  + comment headers
   - finish this file
 
 - ADD MORE SUB-TASKS TO ANY OF THE ABOVE TASKS
