@@ -23,7 +23,7 @@ public class Game{
      */
     private ListADT<Job> list;
     /**
-     * Whenever a Job is completed it is added to the scoreboard
+     * Whenever a Job is completed it is added to the scoreboard.
      */
     private ScoreboardADT scoreBoard;
     private int timeToPlay;
