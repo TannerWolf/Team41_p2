@@ -20,7 +20,7 @@
 public class Scoreboard implements ScoreboardADT
 {
 	ListADT<Job> ListOfJobs; // Job list for scoreboard
-	private int totalScore;
+	private int totalScore;	 // Number of total score
 
 	Scoreboard() 
 	{
