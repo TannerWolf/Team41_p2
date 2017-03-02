@@ -5,7 +5,8 @@ public class GameApp{
      * Scanner instance for reading input from console
      */
     private static final Scanner STDIN = new Scanner(System.in);
-
+    private Game game;
+    
     /**
      * Constructor for instantiating game class
      * @param seed: Seed value as processed in command line
@@ -13,6 +14,7 @@ public class GameApp{
      */
     public GameApp(int seed, int timeToPlay){
         //TODO: Create a new instance of Game class
+    	game = new Game(seed, timeToPlay);
     }
 
     /**
@@ -28,7 +30,17 @@ public class GameApp{
         System.out.println("Welcome to the Job Market!");
 
         //TODO: Take input from command line, process it and add error checking
+        if (args.length < 2 || args.length > 2) {
+        	throw new IllegalArgumentException();
+        }
+        // Parse to int
+        // TODO: check if parsing fails
+        int s = Integer.parseInt(args[0]);
+        int t = Integer.parseInt(args[1]);
+        GameApp ga = new GameApp(s, t);
+        
         //TODO: Call the start() method to start playing the game
+        ga.start();
     }
 
     /**
