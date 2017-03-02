@@ -33,13 +33,13 @@ Task List Usage:
    Anyone can work on any subtask (not just the person who identified
    the sub task).
 
-- Task 0: Each team member must carefully read the assignment and put
++ Task 0: Each team member must carefully read the assignment and put
   some notes together regarding how they might approach the work 
   required for this programming assignment.  Plan to meet in person
   to discuss how you can best complete this assignment.  Do you want 
   to work in smaller groups on specific tasks?
      
-- Task 1: Assign Code Letters for each Team Member
++ Task 1: Assign Code Letters for each Team Member
 
   Each team member is assigned a code letter.
   It can be the first letter of your name or any other unique letter.
@@ -49,13 +49,12 @@ Task List Usage:
   Complete this table:
   Code letter = Student name
   ---------------------------
-         T    =  Tanner (Last Name)
-         I    =  Isaac (Last Name)
+         T    =  Tanner Wolf
+         I    =  Isaac Heinrich
          W    =  Will Mustari
-              =
-              =
-              =
-              =
+         J    =  Jiayue Lai
+         B    =  Jarrett Benson
+         C    =  Cameron Carlson
               
 +T Task 2: Define the JobList class so that it implements the ListADT
   as described in p0.  List sub-tasks here.
@@ -66,7 +65,7 @@ Task List Usage:
       + Listnode class
       + Job class
     + Add p2 files to your p2 project
-    + make sure that all classes and interfaces are in the default package
+    + Make sure that all classes and interfaces are in the default package
     + Create a new class named JobList and add stub methods for
       all required methods of the ListADT
     + Add declaration to "implements ListADT<Job>" to this class
