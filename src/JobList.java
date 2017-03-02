@@ -18,7 +18,7 @@ import java.util.Iterator;
 public class JobList implements ListADT<Job> {
 
 	// Global parameters for list
-	private int numItems;		// number of items in the list
+	private int numItems;	    // number of items in the list
 	private Listnode<Job> head; // header node of list
 	
 	//Constructor
