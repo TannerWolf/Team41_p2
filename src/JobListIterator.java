@@ -17,7 +17,7 @@ import java.util.*;
 
 public class JobListIterator<E> implements Iterator<Job> {
 	
-	Listnode<Job> curr;	//node reference we will traverse with
+	Listnode<Job> curr;		//node reference we will traverse with
 
 	public JobListIterator(Listnode<Job> head) {
 		curr = head.getNext();	//start curr at first node in the list
