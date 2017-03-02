@@ -13,14 +13,7 @@ public class JobListIterator<E> implements Iterator<Job> {
 	@Override
 			//checks if there is a next node
 	public boolean hasNext() {	
-		if (curr.getNext() == null) {
-			
-			//returns false if the next reference is null
-		return false;	
-		}
-
-			//if there is a next node, return true
-		return true;
+		return curr != null;	//returns false if the next reference is null
 	}
 
 	@Override
