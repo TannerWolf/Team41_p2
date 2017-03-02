@@ -52,6 +52,7 @@ public class JobList implements ListADT<Job> {
 		// Add the item into the list
 		Listnode<Job> temp = curr.getNext();
 		Listnode<Job> newnode = new Listnode<Job>(item);
+		// redirect nodes
 		newnode.setNext(temp);
 		curr.setNext(newnode);
 		numItems++;

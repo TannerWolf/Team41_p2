@@ -123,8 +123,26 @@ public class Game{
      *      The amount of time the given job is to be worked on for.
      */
     public Job updateJob(int index, int duration){
-        //TODO: As per instructions in comments
-        return null;
+    	if (index < 0 || index >= list.size()) {
+    		// throw exception? say try again?
+    		System.out.println("Invalid index");
+    	}
+    	// remove the job from the lsit
+    	Job workJob = list.remove(index);
+    	// time penalty
+    	timeToPlay -= index;
+    	// check if the duration is greater than the remaining work required
+    	int diff = workJob.getTimeUnits()-workJob.getSteps();
+    	if (diff < duration) {
+    		duration = diff;
+    	}
+    	timeToPlay -= duration;
+    	workJob.setSteps(workJob.getSteps() + duration);
+    	if (workJob.isCompleted()) {
+    		scoreBoard.updateScoreBoard(workJob);
+    	}
+    	// return the changed job
+        return workJob;
     }
 
     /**
