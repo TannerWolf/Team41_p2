@@ -1,3 +1,4 @@
+import java.util.Iterator;
 import java.util.Random;
 
 public class Game{
@@ -154,8 +155,12 @@ public class Game{
      *
      */
     public void displayActiveJobs(){
-        //TODO: Display all the active jobs
-
+    	Iterator<Job> itr = list.iterator();
+    	String s = "Job Listing\n";
+    	while (itr.hasNext()) {
+    		s += "At position: " + itr.next().toString() + "\n";
+    	}
+    	System.out.println(s);
     }
 
     /**
