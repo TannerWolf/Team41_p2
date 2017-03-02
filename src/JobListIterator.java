@@ -1,13 +1,11 @@
 import java.util.*;
 
 public class JobListIterator<E> implements Iterator<Job> {
-
-	Listnode<Job> head;	//header reference passed to us
+	
 	Listnode<Job> curr;	//node reference we will traverse with
 
-	public JobListIterator(Listnode<Job> header) {
-		head = header;
-		curr = head;	//start curr at head
+	public JobListIterator(Listnode<Job> head) {
+		curr = head.getNext;	//start curr at first node in the list
 	}
 
 	@Override
@@ -21,7 +19,7 @@ public class JobListIterator<E> implements Iterator<Job> {
 	public Job next() throws NoSuchElementException {
 		
 			//throw an error if there isn't a next node
-		if (curr.getNext() == null) {
+		if (curr == null) {
 			throw new NoSuchElementException();
 		}
 		
