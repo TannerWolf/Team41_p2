@@ -19,8 +19,7 @@ public class JobListIterator<E> implements Iterator<Job> {
 		return false;	
 		}
 
-			//if there is a next node, traverse curr and return true
-		curr = curr.getNext();	
+			//if there is a next node, return true
 		return true;
 	}
 
