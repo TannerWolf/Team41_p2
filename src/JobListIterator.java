@@ -33,8 +33,9 @@ public class JobListIterator<E> implements Iterator<Job> {
 		}
 		
 			//traverse curr and return the job data
+		Job temp = curr.getData();
 		curr = curr.getNext();
-		return curr.getData();
+		return temp;
 	}
 
 }
