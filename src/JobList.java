@@ -53,11 +53,14 @@ public class JobList implements ListADT<Job> {
 	@Override
 	public void add(int pos, Job item) {
 		// first check to make sure the position is valid
-		if (pos < 0 || pos >= numItems) {
+		if (pos < 0 || pos > numItems) {
 			throw new IndexOutOfBoundsException();
 		}
 		if (item == null ) {
 			throw new IllegalArgumentException();
+		}
+		if (pos == numItems) {
+			add(item);
 		}
 		// get to one before position in list
 		Listnode<Job> curr = head;

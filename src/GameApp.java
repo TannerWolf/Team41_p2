@@ -75,38 +75,20 @@ public class GameApp{
     		System.out.println("You have " + game.getTimeToPlay() + " in the game!");
         	game.createJobs();
         	game.displayActiveJobs();
-        	int time = game.getTimeToPlay();
         	int input = getIntegerInput("Select a job to work on: ");
         	int amount = getIntegerInput("For how long would you like to work on this job?: ");
+        	game.setTimeToPlay(game.getTimeToPlay() - input);
         	Job newJob = game.updateJob(input, amount);
-        	int penalty = 0;
         	if(!newJob.isCompleted()){
         		int index = getIntegerInput("At what position would you like to insert the job back into the list? ");
-        		if(index > 0){
-        			penalty = index;     			
-        		}
-        		if(index < 0 ){
-        			penalty = game.getNumberOfJobs();
-        		}
-        		time -= penalty;
-        		if(index == 0){
-        			game.addJob(0, newJob);
-        		}
-        		else{
-        			game.addJob(newJob);
-        		}
+        		game.addJob(index, newJob);
         	}
         	else{
         		System.out.println("Job completed! Current Score: " + game.getTotalScore());
         	}
     	}
     	
-    	
-    	}
-    	
-    	
-    	
-    	
+    }
     	
 
     /**
