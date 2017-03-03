@@ -57,8 +57,11 @@ public class GameApp{
         }
         int s = Integer.parseInt(args[0]);
         int t = Integer.parseInt(args[1]);
-        GameApp ga = new GameApp(s, t);
         
+        if(s < 0 || t < 0){
+        	System.exit(0);
+        }
+        GameApp ga = new GameApp(s, t);
         // Call the start() method to start playing the game
         ga.start();
     }
@@ -69,9 +72,42 @@ public class GameApp{
     private void start(){
         //TODO: The interactive game logic goes here
     	while (!game.isOver()) {
-    		int input = getIntegerInput("Put prompt here");
+    		System.out.println("You have " + game.getTimeToPlay() + " in the game!");
+        	game.createJobs();
+        	game.displayActiveJobs();
+        	int time = game.getTimeToPlay();
+        	int input = getIntegerInput("Select a job to work on: ");
+        	int amount = getIntegerInput("For how long would you like to work on this job?: ");
+        	Job newJob = game.updateJob(input, amount);
+        	int penalty = 0;
+        	if(!newJob.isCompleted()){
+        		int index = getIntegerInput("At what position would you like to insert the job back into the list? ");
+        		if(index > 0){
+        			penalty = index;     			
+        		}
+        		if(index < 0 ){
+        			penalty = game.getNumberOfJobs();
+        		}
+        		time -= penalty;
+        		if(index == 0){
+        			game.addJob(0, newJob);
+        		}
+        		else{
+        			game.addJob(newJob);
+        		}
+        	}
+        	else{
+        		System.out.println("Job completed! Current Score: " + game.getTotalScore());
+        	}
     	}
-    }
+    	
+    	
+    	}
+    	
+    	
+    	
+    	
+    	
 
     /**
      * Displays the prompt and returns the integer entered by the user
