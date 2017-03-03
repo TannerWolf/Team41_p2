@@ -33,13 +33,13 @@ Task List Usage:
    Anyone can work on any subtask (not just the person who identified
    the sub task).
 
-- Task 0: Each team member must carefully read the assignment and put
++ Task 0: Each team member must carefully read the assignment and put
   some notes together regarding how they might approach the work 
   required for this programming assignment.  Plan to meet in person
   to discuss how you can best complete this assignment.  Do you want 
   to work in smaller groups on specific tasks?
      
-- Task 1: Assign Code Letters for each Team Member
++ Task 1: Assign Code Letters for each Team Member
 
   Each team member is assigned a code letter.
   It can be the first letter of your name or any other unique letter.
@@ -49,13 +49,12 @@ Task List Usage:
   Complete this table:
   Code letter = Student name
   ---------------------------
-         T    =  Tanner
-         I    =  Isaac
-              =
-              =
-              =
-              =
-              =
+         T    =  Tanner Wolf
+         I    =  Isaac Heinrich
+         W    =  Will Mustari
+         J    =  Jiayue Lai
+         B    =  Jarrett Benson
+         C    =  Cameron Carlson
               
 +T Task 2: Define the JobList class so that it implements the ListADT
   as described in p0.  List sub-tasks here.
@@ -66,7 +65,7 @@ Task List Usage:
       + Listnode class
       + Job class
     + Add p2 files to your p2 project
-    + make sure that all classes and interfaces are in the default package
+    + Make sure that all classes and interfaces are in the default package
     + Create a new class named JobList and add stub methods for
       all required methods of the ListADT
     + Add declaration to "implements ListADT<Job>" to this class
@@ -86,7 +85,7 @@ oT Task 3: Write a Test_JobList class
   - test ...
   - test ...
   
-+I Task 4: Write a JobListIterator class
++I/W Task 4: Write a JobListIterator class
   Make sure that it is implemented as described in the assignment.
   + add a constructor 
   + hasNext()
@@ -96,11 +95,11 @@ oT Task 3: Write a Test_JobList class
   JobList can return an iterator and that the JobListIterator
   works as expected.
   
-- Task 6: Write the Scoreboard class so that it implements all
++W Task 6: Write the Scoreboard class so that it implements all
   required operations of the ScoreboardADT. Review the Game class
   to see how the Scoreboard class is being used.
   
-oT Task 7: Complete the Game class implementation by completing the
++T Task 7: Complete the Game class implementation by completing the
   TODO tags.
   
 - Task 8: Re-read the assignment and map out the actions that must
@@ -122,6 +121,11 @@ oT Task 7: Complete the Game class implementation by completing the
   - Add a call to this method from the main method
   - Get input value and echo to screen
   - output the job list
+  
+oW Task 11:
+  - finish comments
+  + comment headers
+  - finish this file
 
 - ADD MORE SUB-TASKS TO ANY OF THE ABOVE TASKS
 

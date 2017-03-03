@@ -19,12 +19,12 @@
  */
 public class Scoreboard implements ScoreboardADT
 {
-	ListADT<Job> ListOfJobs; // Job list for scoreboard
+	ListADT<Job> listOfJobs; // Job list for scoreboard
 	private int totalScore;	 // Number of total score
 
 	Scoreboard() 
 	{
-		this.ListOfJobs = new JobList();
+		this.listOfJobs = new JobList();
 		this.totalScore = 0;
 	}
 	
@@ -47,7 +47,7 @@ public class Scoreboard implements ScoreboardADT
 	public void updateScoreBoard(Job job)
 	{
 		totalScore += job.getPoints();
-		ListOfJobs.add(job);
+		listOfJobs.add(job);
 	}
 
 	/*
@@ -57,7 +57,7 @@ public class Scoreboard implements ScoreboardADT
 	{
 		System.out.println("Total Score: " + getTotalScore());
 		System.out.println("The jobs completed: ");
-		for (Job j : ListOfJobs)
+		for (Job j : listOfJobs)
 		{
 			System.out.println("Job Name: " + j.getJobName());
 			System.out.println("Points earned for this job: " + j.getPoints());
