@@ -175,7 +175,7 @@ public class Game{
     	String s = "Job Listing\n";
     	int idx = 0;
     	while (itr.hasNext()) {
-    		s += "At position: " + idx + ", " + itr.next().toString() + "\n";
+    		s += "At position: " + idx + " " + itr.next().toString() + "\n";
     		idx++;
     	}
     	System.out.println(s);
