@@ -174,8 +174,10 @@ public class Game{
     public void displayActiveJobs(){
     	Iterator<Job> itr = list.iterator();
     	String s = "Job Listing\n";
+    	int idx = 0;
     	while (itr.hasNext()) {
-    		s += "At position: " + itr.next().toString() + "\n";
+    		s += "At position: " + idx + ", " + itr.next().toString() + "\n";
+    		idx++;
     	}
     	System.out.println(s);
     }
