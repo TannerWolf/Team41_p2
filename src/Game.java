@@ -25,7 +25,7 @@ public class Game{
     /**
      * Whenever a Job is completed it is added to the scoreboard.
      */
-    private ScoreboardADT scoreBoard;
+    private Scoreboard scoreBoard;
     private int timeToPlay;
     private JobSimulator jobSimulator;
 
@@ -37,6 +37,8 @@ public class Game{
      * duration used to determine the length of the game.
      */
     public Game(int seed, int timeToPlay){
+    	list = new JobList();
+    	scoreBoard = new Scoreboard();
     	jobSimulator = new JobSimulator(seed);
     	this.timeToPlay = timeToPlay;
     }
