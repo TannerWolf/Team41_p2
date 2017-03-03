@@ -64,20 +64,28 @@ public class GameApp{
         GameApp ga = new GameApp(s, t);
         // Call the start() method to start playing the game
         ga.start();
+        ga.main_menu_loop();
     }
 
     /**
+     * File says to use this method
+     */
+    private void main_menu_loop() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	/**
      * Add Comments as per implementation
      */
     private void start(){
         //TODO: The interactive game logic goes here
     	while (!game.isOver()) {
-    		System.out.println("You have " + game.getTimeToPlay() + " in the game!");
+    		System.out.println("You have " + game.getTimeToPlay() + " seconds in the game!");
         	game.createJobs();
         	game.displayActiveJobs();
         	int input = getIntegerInput("Select a job to work on: ");
         	int amount = getIntegerInput("For how long would you like to work on this job?: ");
-        	game.setTimeToPlay(game.getTimeToPlay() - input);
         	Job newJob = game.updateJob(input, amount);
         	if(!newJob.isCompleted()){
         		int index = getIntegerInput("At what position would you like to insert the job back into the list? ");
