@@ -68,7 +68,7 @@ public class GameApp{
     }
 
     /**
-     * File says to use this method
+     * File says to use this method????
      */
     private void main_menu_loop() {
 		// TODO Auto-generated method stub
@@ -95,7 +95,7 @@ public class GameApp{
         		System.out.println("Job completed! Current Score: " + game.getTotalScore());
         	}
     	}
-    	
+    	System.out.println("Game Over! Your score is: " + game.getTotalScore());
     }
     	
 

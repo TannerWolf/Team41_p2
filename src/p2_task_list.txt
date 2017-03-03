@@ -107,20 +107,20 @@ oT Task 3: Write a Test_JobList class
   it may be much more convenient to write methods and call them 
   from the main method.
   
-- Task 9: Implement the GameApp class incrementally.  
++Y Task 9: Implement the GameApp class incrementally.  
   Compile and run after each of these items
-  oT main: get the command line arguments (use the getIntegerInput method)
-  - Add the Welcome message as output
+  +T main: get the command line arguments (use the getIntegerInput method)
+  +T Add the Welcome message as output
   +T main: construct a Game instance with the command line values
-    - Try calling Game methods to see if Game was constructed
+    +T Try calling Game methods to see if Game was constructed
       and initialized correctly.
       
 - Task 10: Define a main_menu_loop() method: 
   Put code for one iteration of game play
   - Get the outputs to display in the right order
-  - Add a call to this method from the main method
-  - Get input value and echo to screen
-  - output the job list
+  +T Add a call to this method from the main method
+  + Get input value and echo to screen
+  + output the job list
   
 oW Task 11:
   - finish comments
