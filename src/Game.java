@@ -25,7 +25,9 @@ public class Game{
      * Whenever a Job is completed it is added to the scoreboard.
      */
     private ScoreboardADT scoreBoard;
+    // time left in the game
     private int timeToPlay;
+    // jobSimulator to create jobs
     private JobSimulator jobSimulator;
 
     /**
