@@ -155,6 +155,9 @@ public class Game{
     	if (diff < duration) {
     		duration = diff;
     	}
+    	if (duration > timeToPlay) {
+    		duration = timeToPlay;
+    	}
     	timeToPlay -= duration;
     	workJob.setSteps(workJob.getSteps() + duration);
     	if (workJob.isCompleted()) {
