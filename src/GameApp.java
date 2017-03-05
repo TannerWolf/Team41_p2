@@ -41,62 +41,123 @@ public class GameApp{
      * Use the getIntegerInput function to read inputs from console
      *
      * @param args: Command line arguments <seed> <timeToPlay>
+     * 
      */
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         System.out.println("Welcome to the Job Market!");
 
         // Take input from command line, process it and add error checking
-        if (args.length < 2 || args.length > 2) {
-        	throw new IllegalArgumentException();
-        }
-        // Parse to int
-        // TODO: check if parsing fails
-        if (true) {
-        	
-        }
-        int s = Integer.parseInt(args[0]);
-        int t = Integer.parseInt(args[1]);
         
-        if(s < 0 || t < 0){
-        	System.exit(0);
-        }
-        GameApp ga = new GameApp(s, t);
-        // Call the start() method to start playing the game
-        ga.start();
-        ga.main_menu_loop();
+       
+       
+       try {
+    	   if (args.length < 2 || args.length > 2) {//Check the length of 
+    		   //command line
+           	throw new IndexOutOfBoundsException();
+           }
+    	   // Parse to int
+    	   //Check whether the input is integer
+    	   int s = Integer.parseInt(args[0]);
+    	   int t = Integer.parseInt(args[1]);
+    	   
+    	   //Check whether the input is positive number
+           if(s < 0 || t < 0){
+           	System.out.println("Seed is non-positive integer, program is over.");
+           	System.exit(0);
+           }
+           //Call the game to start after checking
+           GameApp ga = new GameApp(s, t);
+           ga.start();
+    	   
+       }catch (IllegalArgumentException e){
+    	   System.out.println("Seed is not integer, program is over.");
+    	   System.exit(0);
+       }catch (IndexOutOfBoundsException e){
+    	   System.out.println("The number of the seed is not 2, program is over.");
+    	   System.exit(0);
+       }catch (NullPointerException e){
+    	   System.out.println("The seed is null, program is over.");
+    	   System.exit(0);
+       }catch (Exception e){
+    	   System.out.println("Invalid seed, game is over.");
+    	   System.exit(0);
+       }
+       
+       
+       
+        
+        	
+       
+        
+        
     }
 
     /**
-     * File says to use this method????
-     */
-    private void main_menu_loop() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	/**
      * Add Comments as per implementation
      */
     private void start(){
         //TODO: The interactive game logic goes here
+    	//loop while time is not finished
     	while (!game.isOver()) {
-    		System.out.println("You have " + game.getTimeToPlay() + " seconds in the game!");
-        	game.createJobs();
-        	game.displayActiveJobs();
-        	int input = getIntegerInput("Select a job to work on: ");
-        	int amount = getIntegerInput("For how long would you like to work on this job?: ");
-        	Job newJob = game.updateJob(input, amount);
-        	if(!newJob.isCompleted()){
-        		int index = getIntegerInput("At what position would you like to insert the job back into the list? ");
-        		game.addJob(index, newJob);
-        	}
-        	else{
-        		System.out.println("Job completed! Current Score: " + game.getTotalScore());
-        	}
+    		try{
+    			System.out.println("You have " + game.getTimeToPlay() + 
+    					" in the game!");
+    			//Haven't finished
+    				game.createJobs();//only be done on the first iteration, or 
+    				
+    			
+    			//if a job is successfully executed either to completion or 
+    			//reinsertion into the list
+            	game.displayActiveJobs();//Display the jobs which are created
+            	
+            	
+            	//Display the prompt and get input from user
+            	int time = game.getTimeToPlay();
+            	int input = getIntegerInput("Select a job to work on: ");
+            	int amount = getIntegerInput("For how long would you like to "
+            			+ "work on this job?: ");
+            	
+            	//Get the job and update it back
+            	Job newJob = game.updateJob(input, amount);
+            	int penalty = 0;
+            	if(!newJob.isCompleted()){
+            		int index = getIntegerInput("At what position would you "
+            				+ "like to insert the job back into the list?\n");
+            		if(index > 0){
+            			penalty = index;     			
+            		}
+            		if(index < 0 ){
+            			penalty = game.getNumberOfJobs();
+            		}
+            		time -= penalty;
+            		if(index == 0){
+            			game.addJob(0, newJob);
+            		}
+            		else{
+            			game.addJob(newJob);
+            		}
+            	}
+            	else{
+            		System.out.println("Job completed! Current Score: " + 
+            	game.getTotalScore());
+            		game.displayCompletedJobs();
+            	}
+        	
+    		}catch (Exception e){
+    			//TAs' explanations are different, looping or existing?
+    		}
+    		
     	}
-    	System.out.println("Game Over! Your score is: " + game.getTotalScore());
-    }
+        	System.out.println("Game Over!\nYour final score: " + 
+    	game.getTotalScore());
+    	
+    	
+    	}
+    	
+    	
+    	
+    	
     	
 
     /**
@@ -110,7 +171,8 @@ public class GameApp{
     public static int getIntegerInput(String prompt) {
         System.out.print(prompt);
         while ( ! STDIN.hasNextInt() ) {
-            System.out.print(STDIN.next()+" is not an int.  Please enter an integer.");
+            System.out.print(STDIN.next()+" is not an int.  Please enter "
+            		+ "an integer.");
         }
         return STDIN.nextInt();
     }
