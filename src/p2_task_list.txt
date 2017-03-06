@@ -88,7 +88,7 @@
   + output the job list
   
 +W Task 11:
-  + finish comments
+  +W finish comments
   +W comment headers
   +W finish this file
 
