@@ -15,6 +15,13 @@
 
 import java.util.Iterator;
 
+/**
+ * Maintains the active list of jobs and utilizes the JobSimulator class to 
+ * create new jobs to be added to the end of the job listing. Allows for 
+ * addition of jobs to the list and updating of individual jobs.
+ *
+ * <p>Bugs: None
+ */
 public class Game{
 
     /**
