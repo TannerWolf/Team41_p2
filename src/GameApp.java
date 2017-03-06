@@ -1,3 +1,4 @@
+
 /////////////////////////////////////////////////////////////////////////////
 // Semester:         CS367 Spring 2017
 // PROJECT:          team41_p2
@@ -15,7 +16,7 @@
 
 import java.util.Scanner;
 
-public class GameApp{
+public class GameApp {
 	/**
 	 * Scanner instance for reading input from console
 	 */
@@ -27,20 +28,23 @@ public class GameApp{
 
 	/**
 	 * Constructor for instantiating game class
-	 * @param seed: Seed value as processed in command line
-	 * @param timeToPlay: Total time to play from command line
+	 * 
+	 * @param seed:
+	 *            Seed value as processed in command line
+	 * @param timeToPlay:
+	 *            Total time to play from command line
 	 */
-	public GameApp(int seed, int timeToPlay){
+	public GameApp(int seed, int timeToPlay) {
 		game = new Game(seed, timeToPlay);
 	}
 
 	/**
 	 * Main function which takes the command line arguments and instantiate the
-	 * GameApp class.
-	 * The main function terminates when the game ends.
-	 * Use the getIntegerInput function to read inputs from console
+	 * GameApp class. The main function terminates when the game ends. Use the
+	 * getIntegerInput function to read inputs from console
 	 *
-	 * @param args: Command line arguments <seed> <timeToPlay>
+	 * @param args:
+	 *            Command line arguments <seed> <timeToPlay>
 	 * 
 	 */
 	public static void main(String[] args) {
@@ -49,120 +53,113 @@ public class GameApp{
 
 		// Take input from command line, process it and add error checking
 		try {
-			if (args.length < 2 || args.length > 2) {//Check the length of 
-				//command line inputs
+			if (args.length < 2 || args.length > 2) {// Check the length of
+				// command line inputs
 				throw new IndexOutOfBoundsException();
 			}
 			// Parse to int
-			//Check whether the input is integer
+			// Check whether the input is integer
 			int s = Integer.parseInt(args[0]);
 			int t = Integer.parseInt(args[1]);
 
-			//Check whether the input is positive number
-			if(s < 0 || t < 0){
+			// Check whether the input is positive number
+			if (s < 0 || t < 0) {
 				System.out.println("Seed is non-positive integer, program is over.");
 				System.exit(0);
 			}
-			//Call the game to start after checking
+			// Call the game to start after checking
 			GameApp ga = new GameApp(s, t);
 			ga.start();
-			//Gracefully catch exception, display them and exist the game   
-		}catch (IllegalArgumentException e){
+			// Gracefully catch exception, display them and exist the game
+		} catch (IllegalArgumentException e) {
 			System.out.println("Arguments are not integers, program is over.");
 			System.exit(0);
-		}catch (IndexOutOfBoundsException e){
+		} catch (IndexOutOfBoundsException e) {
 			System.out.println("Number of inputs is not 2, program is over.");
 			System.exit(0);
-		}catch (NullPointerException e){
+		} catch (NullPointerException e) {
 			System.out.println("Invalid argument, program is over.");
 			System.exit(0);
-		}catch (Exception e){
+		} catch (Exception e) {
 			System.out.println("Invalid argument, game is over.");
 			System.exit(0);
 		}
+	}
 
+	/**
+	 * 
+	 */
+	private void main_menu_loop() {
+		System.out.println("You have " + game.getTimeToPlay() + " in the game!");
+		game.displayActiveJobs();// Display the jobs which are created
+
+		try {// Display the prompt and get input from user
+				// input is the job that user want to work on
+			int input = getIntegerInput("Select a job to work on: ");
+
+			boolean repeat = true;
+			int amount = 0;
+			while (repeat) {
+				// amount is the amount of time that the user want to on the job
+				amount = getIntegerInput("For how long would you like to " + "work on this job?: ");
+				// Check whether use enter in positive int
+				if (amount <= 0) {
+					System.out.println("Please enter a value greater than 0.");
+				} else {
+					repeat = false;
+				}
+			}
+			// update the job for specific amount of time
+			Job newJob = game.updateJob(input, amount);
+
+			// if the job is not completed, ask the user to insert it back
+			if (!newJob.isCompleted()) {
+				int index = getIntegerInput(
+						"At what position would " + "you like to insert the job back into the list?\n");
+				game.addJob(index, newJob);
+			} else {
+				System.out.println("Job completed! Current Score: " + game.getTotalScore());
+				game.displayCompletedJobs();
+			}
+			game.createJobs();// create jobs if a job is successfully
+			// executed either to completion or reinsertion into the list
+		} catch (IndexOutOfBoundsException e) {
+		} catch (IllegalArgumentException e) {// prompt the user to enter in
+			// a positive number
+			System.out.println("Please enter in a positive integer!");
+		}
 
 	}
 
 	/**
 	 * Add Comments as per implementation
 	 */
-	private void start(){
+	private void start() {
 
-		//The objects should only be created on the first iteration
+		// The objects should only be created on the first iteration
 		game.createJobs();
-		//loop while time is not finished
+		// loop while time is not finished
 		while (!game.isOver()) {
-			System.out.println("You have " + game.getTimeToPlay() + 
-					" in the game!");
-			game.displayActiveJobs();//Display the jobs which are created
-
-			try{//Display the prompt and get input from user
-				//input is the job that user want to work on
-				int input = getIntegerInput("Select a job to work on: ");
-				
-				boolean repeat = true;
-				int amount = 0;
-				while (repeat) {
-					//amount is the amount of time that the user want to on the job
-					amount = getIntegerInput("For how long would you like to "
-							+ "work on this job?: ");
-					//Check whether use enter in positive int
-					if (amount <= 0) {
-						System.out.println("Please enter a value greater than 0.");
-					}
-					else {
-						repeat = false;
-					}
-				}
-				//update the job for specific amount of time
-				Job newJob = game.updateJob(input, amount);
-
-				//if the job is not completed, ask the user to insert it back
-				if(!newJob.isCompleted()){
-					int index = getIntegerInput("At what position would "
-							+ "you like to insert the job back into the list?\n");
-					game.addJob(index, newJob);
-				}
-				else{
-					System.out.println("Job completed! Current Score: " + 
-							game.getTotalScore());
-					game.displayCompletedJobs();
-				}
-				game.createJobs();//create jobs  if a job is successfully 
-				//executed either to completion or reinsertion into the list
-			}catch (IndexOutOfBoundsException e){
-			}catch (IllegalArgumentException e){//prompt the user to enter in
-				//a positive number
-				System.out.println("Please enter in a positive integer!");
-			}
-
-
-		}//Display ending and show total score
-		System.out.println("Game Over!\nYour final score: " + 
-				game.getTotalScore());
-
+			main_menu_loop();
+		} // Display ending and show total score
+		System.out.println("Game Over!\nYour final score: " + game.getTotalScore());
 
 	}
 
-
-
-
-
-
 	/**
-	 * Displays the prompt and returns the integer entered by the user
-	 * to the standard input stream.
+	 * Displays the prompt and returns the integer entered by the user to the
+	 * standard input stream.
 	 *
-	 * Does not return until the user enters an integer.
-	 * Does not check the integer value in any way.
-	 * @param prompt The user prompt to display before waiting for this integer.
+	 * Does not return until the user enters an integer. Does not check the
+	 * integer value in any way.
+	 * 
+	 * @param prompt
+	 *            The user prompt to display before waiting for this integer.
 	 */
 	public static int getIntegerInput(String prompt) {
 		System.out.print(prompt);
-		while ( ! STDIN.hasNextInt() ) {
-			System.out.print(STDIN.next()+" is not an int.  Please enter "
-					+ "an integer.");
+		while (!STDIN.hasNextInt()) {
+			System.out.print(STDIN.next() + " is not an int.  Please enter " + "an integer.");
 		}
 		return STDIN.nextInt();
 	}
