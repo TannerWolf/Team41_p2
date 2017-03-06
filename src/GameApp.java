@@ -89,7 +89,7 @@ public class GameApp{
     }
 
     /**
-     * Add Comments as per implementation
+     * Starts a new instance of the game and creates a job to be completed.
      */
     private void start(){
         
