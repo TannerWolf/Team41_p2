@@ -15,6 +15,14 @@
 
 import java.util.Iterator;
 
+/**
+ * Stores all currently active jobs in a chain of nodes. Methods allow
+ * adding jobs to the JobList, removing jobs, getting the size of the 
+ * JobList, checking if JobList is empty, checking if the JobList 
+ * contains a specific job, and accessing a job at a specific index.
+ *
+ * <p>Bugs: None
+ */
 public class JobList implements ListADT<Job> {
 
 	// Global parameters for list
@@ -136,5 +144,4 @@ public class JobList implements ListADT<Job> {
 	public int size() {
 		return numItems;
 	}
-
 }
