@@ -85,15 +85,7 @@ public class GameApp{
        }catch (Exception e){
     	   System.out.println("Invalid seed, game is over.");
     	   System.exit(0);
-       }
-       
-       
-       
-        
-        	
-       
-        
-        
+       } 
     }
 
     /**
@@ -140,14 +132,11 @@ public class GameApp{
             		//a positive number
             		System.out.println("Please enter in a positive integer!");
             	}
-            	
         	
     	}//Display ending and show total score
         	System.out.println("Game Over!\nYour final score: " + 
     	game.getTotalScore());
-    	
-    	
-    	}
+    }
     	
     /**
      * Displays the prompt and returns the integer entered by the user
