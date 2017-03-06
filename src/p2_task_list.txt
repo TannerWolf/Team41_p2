@@ -3,36 +3,6 @@
   
   Team Number: 41   Team Name: IDGAF
 
-In an effort to help students improve the process of learning to
-to work together in their teams and as a way to provide each team with 
-a way to document and communicate the work required and how each 
-team member contributed, each team must complete this document as 
-part of their p2 work.
-
-Task List Usage:
-1. Use this to document the tasks that you each complete for p2.
-   Each task to be completed is identified and listed in this document 
-   with a (i) symbol to indicate that it is not yet started.
-
-2. When one or more team members are working on a specific task, 
-   they change the (-) to a (o) and add their code letter.
-   This lets other team members know that someone is working on that task.
-   
-3. You can only be working on one task at a time.
-   
-4. Once a task is completed, change the (o) to a (+) symbol. Leave your
-   code letter with that task, and select another task to work on.
-   
-5. Not all tasks take the same amount of effort and time.  It is usually
-   a good idea to work on easy tasks first and better understand the problem
-   before tackling harder and more time consuming tasks.  It is okay if 
-   some members complete more tasks than others.  It is okay if more 
-   than one member is working on a specific task.
-   
-6. It is okay to start a task by identifying sub-tasks to be completed.
-   Anyone can work on any subtask (not just the person who identified
-   the sub task).
-
 + Task 0: Each team member must carefully read the assignment and put
   some notes together regarding how they might approach the work 
   required for this programming assignment.  Plan to meet in person
@@ -40,12 +10,7 @@ Task List Usage:
   to work in smaller groups on specific tasks?
      
 + Task 1: Assign Code Letters for each Team Member
-
-  Each team member is assigned a code letter.
-  It can be the first letter of your name or any other unique letter.
-  Change - to + when all members have selected a code letter and 
-  added their code letter and name to this table.
-  
+ 
   Complete this table:
   Code letter = Student name
   ---------------------------
