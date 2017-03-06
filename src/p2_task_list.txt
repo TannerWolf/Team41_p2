@@ -122,10 +122,10 @@ Task List Usage:
   + Get input value and echo to screen
   + output the job list
   
-oW Task 11:
++W Task 11:
   + finish comments
   +W comment headers
-  oW finish this file
+  +W finish this file
 
     
 *****************************************************************/
