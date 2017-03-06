@@ -115,7 +115,7 @@ Task List Usage:
     +T Try calling Game methods to see if Game was constructed
       and initialized correctly.
       
-+T/W Task 10: Define a main_menu_loop() method: 
++T/Y Task 10: Define a main_menu_loop() method: 
   Put code for one iteration of game play
   + Get the outputs to display in the right order
   +T Add a call to this method from the main method
