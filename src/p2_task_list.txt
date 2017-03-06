@@ -115,9 +115,9 @@ oT Task 3: Write a Test_JobList class
     +T Try calling Game methods to see if Game was constructed
       and initialized correctly.
       
-- Task 10: Define a main_menu_loop() method: 
++ Task 10: Define a main_menu_loop() method: 
   Put code for one iteration of game play
-  - Get the outputs to display in the right order
+  + Get the outputs to display in the right order
   +T Add a call to this method from the main method
   + Get input value and echo to screen
   + output the job list
