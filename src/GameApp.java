@@ -20,6 +20,7 @@ import java.util.Scanner;
  * a seed for the random number generator and a positive integer 
  * indicating the duration.
  *
+ * <p>Bugs: None
  */
 public class GameApp{
     /**
