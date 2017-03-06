@@ -15,8 +15,10 @@
 
 import java.util.Scanner;
 /**
- * The GameApp 
- * @author user
+ * The GameApp This is the main class that starts the program execution and 
+ * starts the main program loop. It takes two command line arguments, 
+ * a seed for the random number generator and a positive integer 
+ * indicating the duration.
  *
  */
 public class GameApp{
@@ -51,10 +53,7 @@ public class GameApp{
 
         System.out.println("Welcome to the Job Market!");
 
-        // Take input from command line, process it and add error checking
-        
-       
-       
+        // Take input from command line, process it and add error checking 
        try {
     	   if (args.length < 2 || args.length > 2) {//Check the length of 
     		   //command line
@@ -150,11 +149,6 @@ public class GameApp{
     	
     	}
     	
-    	
-    	
-    	
-    	
-
     /**
      * Displays the prompt and returns the integer entered by the user
      * to the standard input stream.
