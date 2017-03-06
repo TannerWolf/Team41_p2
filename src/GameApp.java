@@ -90,60 +90,59 @@ public class GameApp {
 	 * 
 	 */
 	private void main_menu_loop() {
-		System.out.println("You have " + game.getTimeToPlay() + " in the game!");
-		game.displayActiveJobs();// Display the jobs which are created
+		// loop while time is not finished
+		while (!game.isOver()) {
+			System.out.println("You have " + game.getTimeToPlay() + " in the game!");
+			game.displayActiveJobs();// Display the jobs which are created
 
-		try {// Display the prompt and get input from user
-				// input is the job that user want to work on
-			int input = getIntegerInput("Select a job to work on: ");
+			try {// Display the prompt and get input from user
+					// input is the job that user want to work on
+				int input = getIntegerInput("Select a job to work on: ");
 
-			boolean repeat = true;
-			int amount = 0;
-			while (repeat) {
-				// amount is the amount of time that the user want to on the job
-				amount = getIntegerInput("For how long would you like to " + "work on this job?: ");
-				// Check whether use enter in positive int
-				if (amount <= 0) {
-					System.out.println("Please enter a value greater than 0.");
-				} else {
-					repeat = false;
+				boolean repeat = true;
+				int amount = 0;
+				while (repeat) {
+					// amount is the amount of time that the user want to on the
+					// job
+					amount = getIntegerInput("For how long would you like to " + "work on this job?: ");
+					// Check whether use enter in positive int
+					if (amount <= 0) {
+						System.out.println("Please enter a value greater than 0.");
+					} else {
+						repeat = false;
+					}
 				}
-			}
-			// update the job for specific amount of time
-			Job newJob = game.updateJob(input, amount);
+				// update the job for specific amount of time
+				Job newJob = game.updateJob(input, amount);
 
-			// if the job is not completed, ask the user to insert it back
-			if (!newJob.isCompleted()) {
-				int index = getIntegerInput(
-						"At what position would " + "you like to insert the job back into the list?\n");
-				game.addJob(index, newJob);
-			} else {
-				System.out.println("Job completed! Current Score: " + game.getTotalScore());
-				game.displayCompletedJobs();
+				// if the job is not completed, ask the user to insert it back
+				if (!newJob.isCompleted()) {
+					int index = getIntegerInput(
+							"At what position would " + "you like to insert the job back into the list?\n");
+					game.addJob(index, newJob);
+				} else {
+					System.out.println("Job completed! Current Score: " + game.getTotalScore());
+					game.displayCompletedJobs();
+				}
+				game.createJobs();// create jobs if a job is successfully
+				// executed either to completion or reinsertion into the list
+			} catch (IndexOutOfBoundsException e) {
+			} catch (IllegalArgumentException e) {// prompt the user to enter in
+				// a positive number
+				System.out.println("Please enter in a positive integer!");
 			}
-			game.createJobs();// create jobs if a job is successfully
-			// executed either to completion or reinsertion into the list
-		} catch (IndexOutOfBoundsException e) {
-		} catch (IllegalArgumentException e) {// prompt the user to enter in
-			// a positive number
-			System.out.println("Please enter in a positive integer!");
-		}
 
+		} // Display ending and show total score
+		System.out.println("Game Over!\nYour final score: " + game.getTotalScore());
 	}
 
 	/**
 	 * Add Comments as per implementation
 	 */
 	private void start() {
-
 		// The objects should only be created on the first iteration
 		game.createJobs();
-		// loop while time is not finished
-		while (!game.isOver()) {
-			main_menu_loop();
-		} // Display ending and show total score
-		System.out.println("Game Over!\nYour final score: " + game.getTotalScore());
-
+		main_menu_loop();
 	}
 
 	/**
