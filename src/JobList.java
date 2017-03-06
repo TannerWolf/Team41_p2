@@ -29,7 +29,13 @@ public class JobList implements ListADT<Job> {
 	private int numItems;	    // number of items in the list
 	private Listnode<Job> head; // header node of list
 	
-	//Constructor
+	/**
+	 * Constructor for JobList.
+	 *
+	 * PRECONDITIONS: None
+	 * 
+	 * POSTCONDITIONS: None
+	 */
 	public JobList() {
 		numItems = 0;
 		head = new Listnode<Job>(null);
@@ -41,6 +47,16 @@ public class JobList implements ListADT<Job> {
 		return new JobListIterator<Job>(head);
 	}
 
+	/**
+	 * This method adds a new job to the JobList.
+	 *
+	 * PRECONDITIONS: JobList exists
+	 * 
+	 * POSTCONDITIONS: None
+	 *
+	 * @param item The job to be added to JobList
+	 * @throws IllegalArgumentException
+	 */
 	@Override
 	public void add(Job item) {
 		// Check if the given item is null
@@ -58,6 +74,17 @@ public class JobList implements ListADT<Job> {
 		numItems++;
 	}
 
+	/**
+	 * This method adds a new job to the JobList at a given index.
+	 *
+	 * PRECONDITIONS: JobList exists
+	 * 
+	 * POSTCONDITIONS: None
+	 *
+	 * @param item The job to be added to JobList
+	 * @param pos Index where job should be added
+	 * @throws IllegalArgumentException, IndexOutOfBoundsException
+	 */
 	@Override
 	public void add(int pos, Job item) {
 		// first check to make sure the position is valid
@@ -84,6 +111,14 @@ public class JobList implements ListADT<Job> {
 		numItems++;
 	}
 
+	/** 
+	 * Check if a particular item exists in the list
+         * 
+	 * @param item the item to be checked for in the list
+         * @return true if value exists, else false
+         * @throws IllegalArgumentException
+         *              if item is null
+         */
 	@Override
 	public boolean contains(Job item) {
 		// go through the list to check if it is there
@@ -99,6 +134,12 @@ public class JobList implements ListADT<Job> {
 		return false;
 	}
 
+	/** 
+	 * Returns data at a specific index
+	 *
+    	 * @param pos position of the item to be returned
+   	 * @throws IndexOutOfBoundsException
+    	 */
 	@Override
 	public Job get(int pos) {
 		// first check to make sure the position is valid
@@ -114,12 +155,25 @@ public class JobList implements ListADT<Job> {
 		return curr.getData();
 	}
 
+	/**
+	 * Returns true if the list is empty
+    	 * 
+	 * @return value is true if the list is empty
+   	 *              else false
+    	 */
 	@Override
 	public boolean isEmpty() {
 		// check if the number of items is nonzero
-		return numItems > 0;
+		return numItems <= 0;
 	}
 
+	/**
+	 * Removes and returns the job at the index position.
+	 *
+	 * @param pos Index where job is to be removed
+	 * @return the job at index pos
+	 * @throws IndexOutOfBoundsException
+	 */
 	@Override
 	public Job remove(int pos) {
 		// first check to make sure the position is valid
@@ -140,6 +194,14 @@ public class JobList implements ListADT<Job> {
 		return temp.getData();
 	}
 
+	/* Public accessor for the number of jobs.
+	 *
+	 * PRECONDITIONS: JobList exists
+	 * 
+	 * POSTCONDITIONS: None
+	 *
+	 * @return Returns the number of jobs.
+	 */
 	@Override
 	public int size() {
 		return numItems;
